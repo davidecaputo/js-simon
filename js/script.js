@@ -6,7 +6,6 @@
 
 // prendo il bottone
 const btn = document.querySelector('button');
-
 // genero i 5 numeri randomici
 const numberPc = [];
 while(numberPc.length < 5){
@@ -15,6 +14,17 @@ while(numberPc.length < 5){
 }
 console.log(numberPc);
 
+//Stampo i numeri
+printNumers();
+
+
+
+function printNumers(){
+    const boxNumberPc = document.querySelector('.number');
+    for (const numbers of numberPc) {
+        boxNumberPc.innerHTML += `<span class="pe-4 fs-1">${numbers}</span>`;
+    }
+}
 
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
