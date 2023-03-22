@@ -4,8 +4,15 @@
     Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
 */
 
-// prendo il bottone
+// prendo gli elementi che mi servono
+const h1 = document.querySelector('h1');
 const btn = document.querySelector('button');
+
+//faccio apparire il titolo dopo 1 secondo
+setTimeout(function(){
+    h1.classList.remove('opacity-0');
+}, 1000);
+
 // genero i 5 numeri randomici
 const numberPc = [];
 while(numberPc.length < 5){
@@ -14,13 +21,48 @@ while(numberPc.length < 5){
 }
 console.log(numberPc);
 
+//faccio apparire i numeri dopo 2 secondi
+const boxNumberPc = document.querySelector('.number');
+setTimeout(function(){
+    boxNumberPc.classList.remove('opacity-0');
+}, 2000);
+
 //Stampo i numeri
 printNumers();
+
+//faccio scomparire i numeri dopo 10 secondi
+setTimeout(function(){
+    boxNumberPc.classList.add('opacity-0');
+}, 12000);
+
+//faccio apparire il primo h2
+const firstH = document.querySelector('h2');
+setTimeout(function(){
+    firstH.classList.remove('opacity-0');
+}, 13000);
+
+//faccio apparire il secondo h2
+const secondH = document.querySelector('.second-phrase');
+setTimeout(function(){
+    secondH.classList.remove('opacity-0');
+}, 14000);
+
+//faccio apparire il terzo h2
+const thirdH = document.querySelector('.third-phrase');
+setTimeout(function(){
+    thirdH.classList.remove('opacity-0');
+}, 15000);
+
+//faccio apparire il from
+const form = document.querySelector('form');
+setTimeout(function(){
+    form.classList.remove('opacity-0');
+}, 16000);
+
 
 
 
 function printNumers(){
-    const boxNumberPc = document.querySelector('.number');
     for (const numbers of numberPc) {
         boxNumberPc.innerHTML += `<span class="pe-4 fs-1">${numbers}</span>`;
     }
