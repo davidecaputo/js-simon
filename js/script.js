@@ -7,6 +7,7 @@
 // prendo gli elementi che mi servono
 const h1 = document.querySelector('h1');
 const btn = document.querySelector('button');
+const result = document.querySelector('.result');
 
 //faccio apparire il titolo dopo 1 secondo
 setTimeout(function(){
@@ -21,14 +22,15 @@ while(numberPc.length < 5){
 }
 console.log(numberPc);
 
-//faccio apparire i numeri dopo 2 secondi
+//Stampo i numeri
 const boxNumberPc = document.querySelector('.number');
+printNumers();
+
+//faccio apparire i numeri dopo 2 secondi
 setTimeout(function(){
     boxNumberPc.classList.remove('opacity-0');
 }, 2000);
 
-//Stampo i numeri
-printNumers();
 
 //faccio scomparire i numeri dopo 10 secondi
 setTimeout(function(){
@@ -59,7 +61,17 @@ setTimeout(function(){
     form.classList.remove('opacity-0');
 }, 16000);
 
-
+//aggiungo il click al bottone
+form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const input = document.querySelectorAll('input');
+    let inputValue = [];
+    for(let i = 0; i < input.length; i++){
+        inputValue.push(parseInt(input[i].value));
+    }
+    console.log(inputValue);
+    
+});
 
 
 function printNumers(){
