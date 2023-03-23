@@ -70,7 +70,7 @@ form.addEventListener('submit', function(e){
         inputValue.push(parseInt(input[i].value));
     }
     console.log(inputValue);
-    
+    controllNumbers(numberPc, inputValue);
 });
 
 
@@ -78,6 +78,26 @@ function printNumers(){
     for (const numbers of numberPc) {
         boxNumberPc.innerHTML += `<span class="pe-4 fs-1">${numbers}</span>`;
     }
+}
+
+function controllNumbers(numberPc, inputValue){
+
+    let guessed = 0;
+    for(let i = 0; i < numberPc.length; i++){
+        for(let j = 0; j < inputValue.length; j++){
+            if(numberPc[i] === inputValue[j]){
+                guessed++;
+            }
+        }
+    }
+    if(guessed === 0){
+        result.innerHTML = `<span class="fs-1">Mi dispiace non hai indovinato nessun numero</span>`
+    } else if(guessed === 5) {
+        result.innerHTML = `<span class="fs-1">Bravissimo hai indovinato tutti i numeri. Hai una memoria di ferro</span>`
+    } else {
+        result.innerHTML = `<span class="fs-1">Bravo hai indovinato ${guessed} numero/i</span>`
+    }
+    console.log(guessed);
 }
 
 function getRndInteger(min, max) {
